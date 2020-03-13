@@ -4,7 +4,7 @@ from keras.preprocessing.image import img_to_array
 from keras.applications import imagenet_utils
 from PIL import Image
 import numpy as np
-from flask import Flask, request
+from flask import Flask, request, jsonify
 from flask_httpauth import HTTPBasicAuth
 
 import io
@@ -59,10 +59,10 @@ def predict():
     data = {"success": False}
 
     # ensure an image was properly uploaded to our endpoint
-    if flask.request.method == "POST":
-        if flask.request.files.get("image"):
+    if request.method == "POST":
+        if request.files.get("image"):
             # read the image in PIL format
-            image = flask.request.files["image"].read()
+            image = request.files["image"].read()
             image = Image.open(io.BytesIO(image))
 
             # preprocess the image and prepare it for classification
@@ -84,7 +84,7 @@ def predict():
             data["success"] = True
 
     # return the data dictionary as a JSON response
-    return flask.jsonify(data)
+    return jsonify(data)
 
 if __name__ == "__main__":
     print(("* Loading Keras model and Flask starting server..."

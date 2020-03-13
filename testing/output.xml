@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200313 16:54:20.284" rpa="false">
-<suite id="s1" name="Tests" source="/home/adam/NN_api_server/tests.robot">
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200313 18:21:14.753" rpa="false">
+<suite id="s1" name="Tests" source="/home/adam/NN_api_server/testing/tests.robot">
 <test id="s1-t1" name="Send Image">
 <kw name="Supply Image">
 <arguments>
@@ -16,11 +16,11 @@
 <assign>
 <var>${output}</var>
 </assign>
-<msg timestamp="20200313 16:54:20.561" level="INFO">${output} = True</msg>
-<status status="PASS" starttime="20200313 16:54:20.365" endtime="20200313 16:54:20.561"></status>
+<msg timestamp="20200313 18:21:15.979" level="INFO">${output} = True</msg>
+<status status="PASS" starttime="20200313 18:21:14.835" endtime="20200313 18:21:15.979"></status>
 </kw>
-<msg timestamp="20200313 16:54:20.562" level="INFO">${out} = True</msg>
-<status status="PASS" starttime="20200313 16:54:20.365" endtime="20200313 16:54:20.562"></status>
+<msg timestamp="20200313 18:21:15.979" level="INFO">${out} = True</msg>
+<status status="PASS" starttime="20200313 18:21:14.835" endtime="20200313 18:21:15.979"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -28,11 +28,11 @@
 <arg>${out}</arg>
 <arg>${True}</arg>
 </arguments>
-<status status="PASS" starttime="20200313 16:54:20.562" endtime="20200313 16:54:20.562"></status>
+<status status="PASS" starttime="20200313 18:21:15.979" endtime="20200313 18:21:15.980"></status>
 </kw>
-<status status="PASS" starttime="20200313 16:54:20.364" endtime="20200313 16:54:20.563" critical="yes"></status>
+<status status="PASS" starttime="20200313 18:21:14.834" endtime="20200313 18:21:15.980" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20200313 16:54:20.285" endtime="20200313 16:54:20.563"></status>
+<status status="PASS" starttime="20200313 18:21:14.754" endtime="20200313 18:21:15.980"></status>
 </suite>
 <statistics>
 <total>
