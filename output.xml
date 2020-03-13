@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200313 16:54:20.284" rpa="false">
+<suite id="s1" name="Tests" source="/home/adam/NN_api_server/tests.robot">
+<test id="s1-t1" name="Send Image">
+<kw name="Supply Image">
+<arguments>
+<arg>dog.jpg</arg>
+</arguments>
+<assign>
+<var>${out}</var>
+</assign>
+<kw name="Send Img" library="TestLibrary">
+<arguments>
+<arg>${image}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20200313 16:54:20.561" level="INFO">${output} = True</msg>
+<status status="PASS" starttime="20200313 16:54:20.365" endtime="20200313 16:54:20.561"></status>
+</kw>
+<msg timestamp="20200313 16:54:20.562" level="INFO">${out} = True</msg>
+<status status="PASS" starttime="20200313 16:54:20.365" endtime="20200313 16:54:20.562"></status>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<doc>Fails if the given objects are unequal.</doc>
+<arguments>
+<arg>${out}</arg>
+<arg>${True}</arg>
+</arguments>
+<status status="PASS" starttime="20200313 16:54:20.562" endtime="20200313 16:54:20.562"></status>
+</kw>
+<status status="PASS" starttime="20200313 16:54:20.364" endtime="20200313 16:54:20.563" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200313 16:54:20.285" endtime="20200313 16:54:20.563"></status>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" id="s1" name="Tests">Tests</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
