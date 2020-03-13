@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200313 18:21:14.753" rpa="false">
+<robot generator="Robot 3.1.2 (Python 3.6.9 on linux)" generated="20200313 19:12:43.718" rpa="false">
 <suite id="s1" name="Tests" source="/home/adam/NN_api_server/testing/tests.robot">
 <test id="s1-t1" name="Send Image">
 <kw name="Supply Image">
@@ -16,11 +16,11 @@
 <assign>
 <var>${output}</var>
 </assign>
-<msg timestamp="20200313 18:21:15.979" level="INFO">${output} = True</msg>
-<status status="PASS" starttime="20200313 18:21:14.835" endtime="20200313 18:21:15.979"></status>
+<msg timestamp="20200313 19:12:44.126" level="INFO">${output} = True</msg>
+<status status="PASS" starttime="20200313 19:12:43.928" endtime="20200313 19:12:44.126"></status>
 </kw>
-<msg timestamp="20200313 18:21:15.979" level="INFO">${out} = True</msg>
-<status status="PASS" starttime="20200313 18:21:14.835" endtime="20200313 18:21:15.979"></status>
+<msg timestamp="20200313 19:12:44.126" level="INFO">${out} = True</msg>
+<status status="PASS" starttime="20200313 19:12:43.927" endtime="20200313 19:12:44.126"></status>
 </kw>
 <kw name="Should Be Equal" library="BuiltIn">
 <doc>Fails if the given objects are unequal.</doc>
@@ -28,21 +28,83 @@
 <arg>${out}</arg>
 <arg>${True}</arg>
 </arguments>
-<status status="PASS" starttime="20200313 18:21:15.979" endtime="20200313 18:21:15.980"></status>
+<status status="PASS" starttime="20200313 19:12:44.127" endtime="20200313 19:12:44.127"></status>
 </kw>
-<status status="PASS" starttime="20200313 18:21:14.834" endtime="20200313 18:21:15.980" critical="yes"></status>
+<status status="PASS" starttime="20200313 19:12:43.927" endtime="20200313 19:12:44.127" critical="yes"></status>
 </test>
-<status status="PASS" starttime="20200313 18:21:14.754" endtime="20200313 18:21:15.980"></status>
+<test id="s1-t2" name="Correct Analysis">
+<kw name="Detection">
+<arguments>
+<arg>dog.jpg</arg>
+</arguments>
+<assign>
+<var>${out}</var>
+</assign>
+<kw name="Image Analysis" library="TestLibrary">
+<arguments>
+<arg>${image}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20200313 19:12:44.344" level="INFO">${output} = beagle</msg>
+<status status="PASS" starttime="20200313 19:12:44.128" endtime="20200313 19:12:44.344"></status>
+</kw>
+<msg timestamp="20200313 19:12:44.344" level="INFO">${out} = beagle</msg>
+<status status="PASS" starttime="20200313 19:12:44.128" endtime="20200313 19:12:44.344"></status>
+</kw>
+<kw name="Should Contain" library="BuiltIn">
+<doc>Fails if ``container`` does not contain ``item`` one or more times.</doc>
+<arguments>
+<arg>${out}</arg>
+<arg>beagle</arg>
+</arguments>
+<status status="PASS" starttime="20200313 19:12:44.345" endtime="20200313 19:12:44.345"></status>
+</kw>
+<status status="PASS" starttime="20200313 19:12:44.128" endtime="20200313 19:12:44.345" critical="yes"></status>
+</test>
+<test id="s1-t3" name="Check Element">
+<kw name="Post Image">
+<arguments>
+<arg>dog.jpg</arg>
+</arguments>
+<assign>
+<var>${out}</var>
+</assign>
+<kw name="Post Img" library="TestLibrary">
+<arguments>
+<arg>${image}</arg>
+</arguments>
+<assign>
+<var>${output}</var>
+</assign>
+<msg timestamp="20200313 19:12:44.544" level="INFO">${output} = {'predictions': [{'label': 'beagle', 'probability': 0.972682774066925}, {'label': 'Walker_hound', 'probability': 0.006069908384233713}, {'label': 'pot', 'probability': 0.004370064940303564}, {'label':...</msg>
+<status status="PASS" starttime="20200313 19:12:44.346" endtime="20200313 19:12:44.544"></status>
+</kw>
+<msg timestamp="20200313 19:12:44.545" level="INFO">${out} = {'predictions': [{'label': 'beagle', 'probability': 0.972682774066925}, {'label': 'Walker_hound', 'probability': 0.006069908384233713}, {'label': 'pot', 'probability': 0.004370064940303564}, {'label':...</msg>
+<status status="PASS" starttime="20200313 19:12:44.346" endtime="20200313 19:12:44.545"></status>
+</kw>
+<kw name="Element Should Exist" library="JsonValidator">
+<doc>Check the existence of one or more elements, matching [ http://jsonselect.org/ | JSONSelect] expression.</doc>
+<arguments>
+<arg>${out}</arg>
+<arg>.label:contains("beagle")</arg>
+</arguments>
+<status status="PASS" starttime="20200313 19:12:44.545" endtime="20200313 19:12:44.546"></status>
+</kw>
+<status status="PASS" starttime="20200313 19:12:44.345" endtime="20200313 19:12:44.546" critical="yes"></status>
+</test>
+<status status="PASS" starttime="20200313 19:12:43.719" endtime="20200313 19:12:44.546"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0">Critical Tests</stat>
-<stat pass="1" fail="0">All Tests</stat>
+<stat pass="3" fail="0">Critical Tests</stat>
+<stat pass="3" fail="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" id="s1" name="Tests">Tests</stat>
+<stat pass="3" fail="0" id="s1" name="Tests">Tests</stat>
 </suite>
 </statistics>
 <errors>

@@ -17,4 +17,19 @@ class TestLibrary(object):
         payload = {"image": image}
         r = requests.post(url, files=payload).json()
         return r["success"]
+    def post_img(self, image_path):
+        url = '{}/predict'.format(self.ip_address)
+        image = open(image_path, "rb").read()
+        payload = {"image": image}
+        r = requests.post(url, files=payload).json()
+        return r
+    def image_analysis(self, image_path):
+        url = '{}/predict'.format(self.ip_address)
+        image = open(image_path, "rb").read()
+        payload = {"image": image}
+        r = requests.post(url, files=payload).json()
+        best_guess = r['predictions'][0]
+        name = best_guess['label']
+        return name
+
 #c.send_img('image')
