@@ -4,11 +4,11 @@ from keras.preprocessing.image import img_to_array
 from keras.applications import imagenet_utils
 from PIL import Image
 import numpy as np
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template, url_for, redirect
 from flask_httpauth import HTTPBasicAuth
 
 import io
-
+import os
 # initialize our Flask application and the Keras model
 app = Flask(__name__)
 model = None
@@ -51,6 +51,9 @@ loop over results and add them to the data dic tto present
 JSON response
 
 """
+@app.route("/")
+def home():
+    return render_template('fileform.html')
 
 @app.route("/predict", methods=["POST"])
 def predict():
