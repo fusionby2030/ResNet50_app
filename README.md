@@ -14,9 +14,11 @@ I started with the assumption that the Keras API was inherently well tested (thu
   - Model receives photo
   - Model makes prediction
   - Prediction = expected
+
 which contain the high level keywords also in _tests.robot_
 - Supply Image
 - Detection  
+
 using the low level keywords written in _TestLibrary.py_
 - send_img
 - post_img
