@@ -1,11 +1,14 @@
-# Deep Learning REST API (simple)
+# Personal Tutorial on Deep Learning REST APIs (simple)
 
 ## Description
+I wanted to try out how to send an ML model to production. Turns out it is a bit more complicated, but this is how to run it on local machine. Still want to learn how to dockerize it all but okay this is a start. 
+
 This repository presents a method of taking a ML model and deploying it as an API, showing the easiest way to take an deep learning model to production.
 I also take advantage of Test Driven Development (TDD) by writing acceptance and developer tests throughout, which can be seen in _testing/_.
 
+
 ## TDD
-I started with the assumption that the Keras API was inherently well tested (thus out of the scope of our requirements) and that Flask was equally so, therefore I started with the simple test cases found in _tests.robot_
+I started with the assumption that the Keras API was inherently well tested (thus out of the scope of our requirements) and that Flask was equally so, therefore the simple test cases found in _tests.robot_
 - Submit Photo
   - Send a Photo using a POST request
   - App receives Photo
